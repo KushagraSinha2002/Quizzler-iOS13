@@ -1,22 +1,14 @@
 //
-//  ViewController.swift
+//  QuizBrain.swift
 //  Quizzler-iOS13
 //
-//  Created by Angela Yu on 12/07/2019.
-//  Copyright © 2019 The App Brewery. All rights reserved.
+//  Created by Kushagra Sinha on 20/06/22.
+//  Copyright © 2022 The App Brewery. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
-    
-    var questionNumber = 0
-    
+struct QuizBrain {
     let quiz = [
         Question(q: "A slug's blood is green.", a: "True"),
         Question(q: "Approximately one quarter of human bones are in the feet.", a: "True"),
@@ -33,35 +25,41 @@ class ViewController: UIViewController {
         
     ]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateUI()
-    }
+    var questionNumber = 0
+    var score = 0
     
-    func updateUI(){
-        questionLabel.text = quiz[questionNumber].text
-        trueButton.backgroundColor = UIColor.clear
-        falseButton.backgroundColor = UIColor.clear
-        progressBar.progress = Float(questionNumber+1)/Float(quiz.count)
-    }
-    
-    @IBAction func answerButtonPressed(_ sender: UIButton) {
-        let userAnswer = sender.currentTitle
-        let actualAnswer = quiz[questionNumber].answer
-        
-        if(userAnswer == actualAnswer){
-            sender.backgroundColor = UIColor.green
+    mutating func checkAnswer(_ userAnswer: String) -> Bool {
+        print(userAnswer)
+        //        let actualAnswer = quiz[questionNumber].answer
+        if userAnswer == quiz[questionNumber].answer{
+            //right
+            score += 1
+            return true
         }else{
-            sender.backgroundColor = UIColor.red
+            //wrong
+            return false
         }
-        
+    }
+    
+    func getquestionText() -> String {
+        return quiz[questionNumber].text
+    }
+    
+    func getprogress() -> Float {
+        let progress = Float(questionNumber+1)/Float(quiz.count)
+        return progress
+    }
+    
+    mutating func nextQuestion() {
         if(questionNumber < (quiz.count - 1)){
             questionNumber+=1
         }else {
             questionNumber = 0
+            score = 0
         }
-        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) {[self] (Timer) in
-            updateUI()
-        }
+    }
+    
+    func getscore()-> Int {
+        return score
     }
 }
