@@ -3,6 +3,8 @@
 
 #  Quizzler
 
+<img width="467" alt="Screenshot 2022-06-21 at 11 04 19 AM" src="https://user-images.githubusercontent.com/74058421/174723685-1ca7122a-c3c1-4b1f-99ea-4898ef4a957c.png">
+
 ## Our Goal
 
 The goal of this tutorial is to take you one step further in your journey of becoming an app developer. We are going to introduce you to the holy grail of mobile design patterns: the Model View Controller (MVC) pattern. A design pattern is simply a repeatable and optimised solution to a common software problem and you’ll learn more about this when use in the tutorial.
