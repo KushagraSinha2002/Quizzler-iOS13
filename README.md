@@ -3,7 +3,7 @@
 
 #  Quizzler
 
-<img width="467" alt="Screenshot 2022-06-21 at 11 04 19 AM" src="https://user-images.githubusercontent.com/74058421/174723685-1ca7122a-c3c1-4b1f-99ea-4898ef4a957c.png">
+<img width="467" alt="Screenshot 2022-06-21 at 11 04 19 AM" src="https://user-images.githubusercontent.com/74058421/174723806-38e33787-0c79-48b3-85f3-63f7aa8bed49.png">
 
 ## Our Goal
 
